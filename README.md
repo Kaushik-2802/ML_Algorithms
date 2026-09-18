@@ -103,7 +103,57 @@ Finds a **hyperplane** that best separates two (or more) data groups and assigns
 <img width="701" height="271" alt="image" src="https://github.com/user-attachments/assets/5512ce20-068e-4ad0-966c-47df9e863d42" />
 
  **Module used:** `sklearn.svm.SVC`
- 
+
+ ### 5. K-Means Clustering
+ Compute K clusters from data (K is pre-defined).
+ ### Steps:
+ - Choose 3 random points to be the centroids.
+ - Calculate distance for each point to centroids and assign those points to closest centroids.(Expectation step)
+ - Now compute new centroids(Maximization step).
+   Repeat steps 2 and 3 based on the data till all the clusters are formed properly.
+
+   The original dataset used here is as follows. Here is the snapshot of the data:
+   <img width="849" height="160" alt="image" src="https://github.com/user-attachments/assets/261b694e-7000-48d8-af9b-2c94ea6b6585" />
+
+   In this dataset we are now considering compactness and asymetry as the parameters for performing k-means clustering. The following are the scatter-plots comparing them
+
+   original-Data:
+   <img width="933" height="693" alt="image" src="https://github.com/user-attachments/assets/092fce1d-2dcc-4981-8f83-290cbd2eea98" />
+
+   Clustered-Data:
+   <img width="950" height="720" alt="image" src="https://github.com/user-attachments/assets/2822870a-cbe7-467e-9cae-7e91104264fb" />
+
+   **Module used:** `sklearn.cluster.KMeans`
+
+   For Multi-dimensional data, the K-Means Clustering is used just to identify the no. of components from the dataset and not that effective.
+
+   **Multi-Dimensional output**
+   <img width="948" height="712" alt="image" src="https://github.com/user-attachments/assets/746f1888-4684-4d92-bad1-6fb6818601c9" />
+
+   To analyze multi-dimensional data more effeciently, we can use Principal Component Analysis(PCA) to reduce the dimensionality of the data and then apply clustering.
+
+   ### 6. Principal Component Analysis(PCA):
+
+   In pca, we reduce the multi-dimensional data by mapping the dataset onto the projection line. The main goal in pca is to:
+   - Minimize projection residuals
+   - Maximize variance between the points
+
+   <img width="584" height="354" alt="image" src="https://github.com/user-attachments/assets/d95cb299-cbdf-4882-a9c4-569bde4e4b47" />
+
+   Using the same seeds dataset from the UCI machine learning repository, Originally the dataset's dimension is (210,7) i.e it has 7 dimensions. Using pca, let us try to reduce the dimensionality of the dataset to (210,2) i.e, 2 dimensions.
+
+   For comparision let us consider k-means dataframe and PCA dataframe.
+
+   **K-means dataframe after reducing it's dimensions using PCA**:
+   <img width="958" height="709" alt="image" src="https://github.com/user-attachments/assets/6d0881ce-117d-46d1-80a2-7d06aaafdbd0" />
+
+   The above image illustrates multi-dimensional data reduced it's dimensions to 2-dimensional and after that clustered using K-Means clustering
+
+   **Normal multi-dimensional data representation using PCA i.e no clustering**:
+   <img width="942" height="699" alt="image" src="https://github.com/user-attachments/assets/2ea878fc-03b0-41c3-841e-8be08bcfc695" />
+
+   **Module used**: `sklearn.decomposition.PCA`
+
 ---
  
 ##  Tech Stack
